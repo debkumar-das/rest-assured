@@ -26,8 +26,9 @@ import java.io.PrintStream;
 import java.io.StringWriter;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.startsWith;
 
 public class GivenWhenThenLoggingITest extends WithJetty {
 
@@ -49,7 +50,7 @@ public class GivenWhenThenLoggingITest extends WithJetty {
         assertThat(writer.toString(), equalTo(String.format("HTTP/1.1 200 OK%n" +
                 "Content-Type: application/json;charset=utf-8%n" +
                 "Content-Length: 59%n" +
-                "Server: Jetty(9.3.2.v20150730)%n" +
+                "Server: Jetty(9.4.34.v20201102)%n" +
                 "%n" +
                 "{\"firstName\":\"John\",\"lastName\":\"Doe\",\"fullName\":\"John Doe\"}%n")));
     }
@@ -65,7 +66,7 @@ public class GivenWhenThenLoggingITest extends WithJetty {
         then().
                 log().cookies().
                 body(equalTo("OK"));
-        assertThat(writer.toString(), allOf(startsWith("cookie1=cookieValue1;Domain=localhost\ncookie1=cookieValue2;Comment=\"My Purpose\";Path=/;Domain=localhost;Max-Age=1234567;Secure;Expires="), endsWith(String.format(";Version=1%n"))));
+        assertThat(writer.toString(), startsWith("cookie1=cookieValue1;Domain=localhost\ncookie1=cookieValue2;Path=/;Domain=localhost;Max-Age=1234567;Secure;Expires="));
     }
 
     @Test
@@ -86,6 +87,6 @@ public class GivenWhenThenLoggingITest extends WithJetty {
 
         assertThat(writer.toString(), equalTo(String.format("Content-Type: application/json;charset=utf-8%n" +
                 "Content-Length: 59%n" +
-                "Server: Jetty(9.3.2.v20150730)%n")));
+                "Server: Jetty(9.4.34.v20201102)%n")));
     }
 }

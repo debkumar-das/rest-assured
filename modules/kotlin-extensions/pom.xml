@@ -20,15 +20,15 @@
     <parent>
         <groupId>io.rest-assured</groupId>
         <artifactId>modules</artifactId>
-        <version>4.3.2-SNAPSHOT</version>
+        <version>4.3.4-SNAPSHOT</version>
     </parent>
     <artifactId>kotlin-extensions</artifactId>
-    <version>4.3.2-SNAPSHOT</version>
+    <version>4.3.4-SNAPSHOT</version>
     <name>kotlin-extensions</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dokka.version>0.9.18</dokka.version>
+        <dokka.version>1.4.10.2</dokka.version>
     </properties>
 
     <dependencies>
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>4.3.2-SNAPSHOT</version>
+            <version>4.3.4-SNAPSHOT</version>
         </dependency>
 
         <!-- Test -->
@@ -82,15 +82,13 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <outputFormat>javadoc</outputFormat>
-                            <outputDir>${project.build.directory}/javadoc</outputDir>
-                            <sourceLinks>
-                                <link>
-                                    <dir>${project.basedir}</dir>
-                                    <url>https://github.com/rest-assured/rest-assured/</url>
-                                    <urlSuffix>#L</urlSuffix>
-                                </link>
-                            </sourceLinks>
+                            <dokkaPlugins>
+                                <plugin>
+                                    <groupId>org.jetbrains.dokka</groupId>
+                                    <artifactId>kotlin-as-java-plugin</artifactId>
+                                    <version>${dokka.version}</version>
+                                </plugin>
+                            </dokkaPlugins>
                         </configuration>
                     </plugin>
                 </plugins>

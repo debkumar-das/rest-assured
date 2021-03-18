@@ -19,7 +19,7 @@
     <parent>
         <groupId>io.rest-assured.examples</groupId>
         <artifactId>example-parent</artifactId>
-        <version>4.3.2-SNAPSHOT</version>
+        <version>4.3.4-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -32,7 +32,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.3.23.RELEASE</spring.version>
         <spring.security.version>4.1.0.RELEASE</spring.security.version>
-        <jetty.version>9.1.0.v20131115</jetty.version>
+        <jetty.version>9.4.34.v20201102</jetty.version>
     </properties>
 
     <build>
@@ -54,7 +54,7 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>spring-mock-mvc</artifactId>
-            <version>4.3.2-SNAPSHOT</version>
+            <version>4.3.4-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
         <dependency>

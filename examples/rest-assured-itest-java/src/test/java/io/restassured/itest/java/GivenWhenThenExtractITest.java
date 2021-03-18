@@ -26,8 +26,8 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.get;
 import static io.restassured.http.ContentType.JSON;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
 
 public class GivenWhenThenExtractITest extends WithJetty {
 
@@ -36,6 +36,13 @@ public class GivenWhenThenExtractITest extends WithJetty {
         String body = get("/hello").then().assertThat().contentType(JSON).and().extract().body().asString();
 
         assertThat(body, equalTo("{\"hello\":\"Hello Scalatra\"}"));
+    }
+
+    @Test public void
+    extract_response_as_pretty_string_works() {
+        String body = get("/hello").then().assertThat().contentType(JSON).and().extract().body().asPrettyString();
+
+        assertThat(body, equalTo("{\n    \"hello\": \"Hello Scalatra\"\n}"));
     }
 
     @Test public void

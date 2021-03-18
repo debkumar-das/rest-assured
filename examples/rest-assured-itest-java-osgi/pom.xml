@@ -19,7 +19,7 @@
     <parent>
         <groupId>io.rest-assured.examples</groupId>
         <artifactId>example-parent</artifactId>
-        <version>4.3.2-SNAPSHOT</version>
+        <version>4.3.4-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -29,7 +29,7 @@
 
     <properties>
         <animal.sniffer.skip>true</animal.sniffer.skip>
-        <pax-exam.version>4.12.0</pax-exam.version>
+        <pax-exam.version>4.13.1</pax-exam.version>
         <surefire.version>2.18</surefire.version>
     </properties>
 

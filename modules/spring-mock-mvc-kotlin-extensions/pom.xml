@@ -20,16 +20,16 @@
     <parent>
         <artifactId>modules</artifactId>
         <groupId>io.rest-assured</groupId>
-        <version>4.3.2-SNAPSHOT</version>
+        <version>4.3.4-SNAPSHOT</version>
     </parent>
 
     <artifactId>spring-mock-mvc-kotlin-extensions</artifactId>
-    <version>4.3.2-SNAPSHOT</version>
+    <version>4.3.4-SNAPSHOT</version>
     <name>spring-mock-mvc-kotlin-extensions</name>
     <url>http://maven.apache.org</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <dokka.version>0.9.18</dokka.version>
+        <dokka.version>1.4.10.2</dokka.version>
     </properties>
 
     <dependencies>
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>spring-mock-mvc</artifactId>
-            <version>4.3.2-SNAPSHOT</version>
+            <version>4.3.4-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -71,12 +71,6 @@
     <profiles>
         <profile>
             <id>release</id>
-            <!-- We disable this plugin during normal build since dokka doesn't work with JDK11. We get the following error when using JDK11:
-
-            [ERROR] Failed to execute goal org.jetbrains.dokka:dokka-maven-plugin:0.9.18:dokka (default) on project kotlin-extensions: Execution default of goal org.jetbrains.dokka:dokka-maven-plugin:0.9.18:dokka failed: A required class was missing while executing org.jetbrains.dokka:dokka-maven-plugin:0.9.18:dokka: com/sun/tools/doclets/formats/html/HtmlDoclet
-
-            This is a know issue! See https://github.com/Kotlin/dokka/issues/294
-            -->
             <build>
                 <plugins>
                     <plugin>
@@ -95,15 +89,13 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <outputFormat>javadoc</outputFormat>
-                            <outputDir>${project.build.directory}/javadoc</outputDir>
-                            <sourceLinks>
-                                <link>
-                                    <dir>${project.basedir}</dir>
-                                    <url>https://github.com/rest-assured/rest-assured/</url>
-                                    <urlSuffix>#L</urlSuffix>
-                                </link>
-                            </sourceLinks>
+                            <dokkaPlugins>
+                                <plugin>
+                                    <groupId>org.jetbrains.dokka</groupId>
+                                    <artifactId>kotlin-as-java-plugin</artifactId>
+                                    <version>${dokka.version}</version>
+                                </plugin>
+                            </dokkaPlugins>
                         </configuration>
                     </plugin>
                 </plugins>

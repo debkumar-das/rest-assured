@@ -1,3 +1,33 @@
+Changelog 4.3.3 (2020-12-11)
+----------------------------
+* Upgrading kotlin extension module to use Kotlin 1.4.21 (previously 1.4.10 was used)
+* Upgraded groovy from 3.0.6 to 3.0.7
+* Ensure subclasses of ResponseOptions do not break Prettifier (#1425) (thanks to Sam Neirinck for PR)
+
+Changelog 4.2.1 (2020-12-11)
+----------------------------
+* Backport of: Fix content type name before charset recognition (#1341)
+
+Changelog 4.3.2 (2020-11-08)
+----------------------------
+* Upgrade json-schema-validator to 2.2.14 (issue 1397) (thanks to Guillaume Smet for PR)
+* Upgrading apache commons lang3 from 3.4 to 3.11.
+* Added asPrettyString method to ResponseBody (issue 1395) (thanks to GithubMood for PR)
+* Describe non matching actual method with Hamcrest matcher format (issue 1387) (thanks for Ivo Šmíd for PR)
+  Before you could run into cryptic error messages such as:
+
+      JSON path values.pi doesn't match.
+      Expected: <3.14>
+      Actual: 3.14
+
+  Now, you see this instead:
+
+      JSON path values.pi doesn't match.
+      Expected: <3.14>
+      Actual: <3.14F>
+* Upgraded groovy from 3.0.3 to 3.0.6
+* Upgrading Kotlin extension module to use Kotlin 1.4.10 (previously 1.3.72 was used)
+
 Changelog 4.3.1 (2020-07-03)
 ----------------------------
 * Upgrading Kotlin extension module to use Kotlin 1.3.72 (previously 1.3.70 was used)
